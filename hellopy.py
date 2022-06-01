@@ -59,3 +59,28 @@ for fruits,color in mydictionary.items():#KeyValuePairを取得
 mydictionary["grape"] = "purple" #これでAddしたことになる
 for fruits,color in mydictionary.items():#KeyValuePairを取得
     print(fruits+" is "+color)
+
+#match文
+value=40
+#ただのswitch文として
+match value:
+    case 0:
+        pass
+    case 10:
+        print("ten")
+    case 40:
+        print("fourty")
+    case _:
+        print("something")
+
+pointtuple=(0,40)
+match pointtuple:
+    case (0,0):
+        print("this is 0,0")
+    case (0,y):
+        print(f"x is 0 and y is {y}")
+    case (x,0):
+        print(f"y is 0 and x is {x}")
+    case (x,y):
+        print(f"X={x}, Y={y}")
+
