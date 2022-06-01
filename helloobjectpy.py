@@ -3,6 +3,10 @@ class Point:
     def __init__(self, iniX, iniY):
         self.x=iniX
         self.y=iniY
+        self.__xysum=self.__sumxy(self.x,self.y)
+    
+    def __sumxy(self,x,y):
+        return x+y
         
 
     def where_is(self):
@@ -17,10 +21,27 @@ class Point:
                 print("Somewhere else")
             case _:
                 print("Not a point")
+        print(str(self.__xysum))
+
+class EmptyClass:
+    pass
+
+#インスタンスごとに値を追加できたりする
+#1回しか使わない(クラス定義要らない)場合にはまあ使える
+i = EmptyClass()
+i.name="hoge"
+i.value=44
+print(i.name)
+
 
 someP=Point(0,45)
 someP2=Point(4,0)
 someP2.y=40
+#print(someP.__xysum) エラー
+print(someP._Point__xysum) 
+#言語仕様上private変数はないが、
+#継承の際の問題(変数名が子クラスと被る)に対処するため
+#先頭に__を付けた変数は_クラス名__変数名になる
 
 someP.where_is()
 someP2.where_is()
