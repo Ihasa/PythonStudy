@@ -4,6 +4,7 @@ class Point:
     def __init__(self, iniX:float, iniY:float):
         self.x:float=iniX
         self.y:float=iniY
+        self.idx = 0
 
     def length(self) -> float:
         return math.sqrt((self.x**2)+(self.y**2))
@@ -26,6 +27,22 @@ class Point:
     def normal(self,/):
         return Point.div(self,self.length())
 
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        res = 0
+        match self.idx:
+            case 0:
+                res = self.x
+            case 1:
+                res = self.y
+            case _:
+                raise StopIteration
+        self.idx += 1
+        return res
+
+
 if __name__ == "__main__":
     
     p1:Point = Point(3,4)
@@ -37,3 +54,5 @@ if __name__ == "__main__":
     print(p3.x, p3.y)
 
     print(p2.normal().length())
+    for v in p1:
+        print("p1:",v)
