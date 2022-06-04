@@ -55,6 +55,12 @@ argTest("hoge", "foo",
  #,"What's wrong?" #エラー。位置引数はキーワード引数の前だけ
  )
 
+def variadicTest(*args,sep="/"):
+    print(sep.join(args)) #直感的でないが・・・
+
+variadicTest("C:","Program Files", "Python", "bin")
+variadicTest("C:","Program Files(x86)", "Python", "bin", sep="\\")
+
 for x in (1,2,3,4,5):
      print(x)
 
