@@ -1,12 +1,12 @@
 import math
 
 class Point:
-    def __init__(watakushi, iniX:float, iniY:float):
-        watakushi.x:float=iniX
-        watakushi.y:float=iniY
+    def __init__(self, iniX:float, iniY:float):
+        self.x:float=iniX
+        self.y:float=iniY
 
-    def length(watakushi) -> float:
-        return math.sqrt((watakushi.x**2)+(watakushi.y**2))
+    def length(self) -> float:
+        return math.sqrt((self.x**2)+(self.y**2))
     
     def add(p1, p2, /):
         res=Point(p1.x, p1.y)
@@ -23,8 +23,8 @@ class Point:
     def product(p1, p2, /) -> float:
         return p1.x * p2.x + p1.y * p2.y
 
-    def normal(watakushi,/):
-        return Point.div(watakushi,watakushi.length())
+    def normal(self,/):
+        return Point.div(self,self.length())
 
 if __name__ == "__main__":
     
