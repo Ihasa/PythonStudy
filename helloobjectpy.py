@@ -16,6 +16,11 @@ class Point:
     def add(self,x,y,/):
         self.x += x
         self.y += y
+    def addAndMul(self,x,y,*,multi=1):
+        self.add(x,y)
+        if(multi != 0):
+            self.x *= multi
+            self.y *= multi
         
 
     def where_is(self):
@@ -57,6 +62,11 @@ someP2.where_is()
 
 someP.add(1,2)
 #someP2.add(x=3,y=2) #エラー。位置指定の引数しか受け付けない
+print((str)(someP.x)+","+(str)(someP.y))
+
+someP.addAndMul(1,2,multi=3)
+
+print((str)(someP.x)+","+(str)(someP.y))
 
 print(someP.length())
 print(someP2.length())
