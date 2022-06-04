@@ -1,4 +1,4 @@
-import point
+import Util.point as point
 
 Point = point.Point #自分定義の名前にしたい場合　本当はモジュール名.関数やクラス名でアクセス
 
