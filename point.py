@@ -25,3 +25,15 @@ class Point:
 
     def normal(self,/):
         return Point.div(self,self.length())
+
+if __name__ == "__main__":
+    
+    p1:Point = Point(3,4)
+    p2:Point = Point(10,3)
+
+    p3:Point = Point.add(p1,p2)
+    print(p1.x, p1.y)
+    print(p2.x, p2.y)
+    print(p3.x, p3.y)
+
+    print(p2.normal().length())
