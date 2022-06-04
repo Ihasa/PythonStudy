@@ -40,7 +40,7 @@ class Point:
 class EmptyClass:
     pass
 
-def argTest(arg1,arg2,*args1, **args2):
+def argTest(arg1,arg2,/,*args1, **args2):
     print("arg1 is "+arg1)
     print("arg2 is "+arg2)
     for a in args1:
@@ -51,7 +51,7 @@ def argTest(arg1,arg2,*args1, **args2):
 argTest("hoge", "foo",
  "how are you?", "this is a pen.", #*args1に入る。あふれた位置引数がここに入る。リストではなくタプルになる。(1,2,3,4,5)とか
  color="blue", size="big", length="3.4" #**args2に入る。存在しないキーワード指定引数がここに入る
- #,arg1="what" #エラー。同じ名前の引数は1回しか渡せない
+ ,arg1="what" #同じ名前の引数は1回しか渡せないが、位置引数かキーワード引数か明確なら渡せる
  #,"What's wrong?" #エラー。位置引数はキーワード引数の前だけ
  )
 
