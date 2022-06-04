@@ -144,6 +144,33 @@ for t in passlist.items(): #dictのiteratorはそのままではkeyしか返さ�
     print(x, y)
 
 #x.sortはlistのみ。他のiterableをsortしたかったら、sorted関数を使う
+#また、sortedは新しいオブジェクトを返すが、list.insert,sort等は何も返さない
 #lambdaの引数でアンパックを使いたいのだが・・・
 print(sorted(passlist.items(),key=lambda x : len(x[1])))
+
+#条件演算いろいろ
+f = passlist
+print(passlist is f) #equalsと同じ
+str1 = "hogehoge"
+str2 = "hogehoge"
+print(str1 is str2) #これはtrue。不変オブジェクトだから、同じ参照しているはず
+
+print(3 < 4 == (3+1)) #(3 < 4) and (4 == (3+1))
+print((3 < 4) and (4 == (3+1)))
+
+print("eho" in str1)
+print("hogehogehoge" not in str2)
+print((x := 3*4) and x == 12) #セイウチ演算子:=で、一時変数に値を束縛
+
+#del文
+#popと同じで削除するが、値を返さない
+#スライスを渡して削除もできる
+#リストというより、可変なシーケンス型に対して使える
+#https://docs.python.org/ja/3/library/stdtypes.html?highlight=sort#mutable-sequence-types
+strL = list(str1)
+del(strL[2:5])
+print(strL)
+del(passlist["steve"])
+print(passlist)
+
 
