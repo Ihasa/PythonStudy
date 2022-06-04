@@ -12,6 +12,10 @@ class Point:
 
     def length(self):
         return math.sqrt((self.x**2)+(self.y**2))
+    
+    def add(self,x,y):
+        self.x += x
+        self.y += y
         
 
     def where_is(self):
@@ -50,6 +54,9 @@ print(someP._Point__xysum)
 
 someP.where_is()
 someP2.where_is()
+
+someP.add(1,2)
+someP2.add(x=3,y=2) 
 
 print(someP.length())
 print(someP2.length())
