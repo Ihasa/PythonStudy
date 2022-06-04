@@ -84,6 +84,16 @@ printSum(range(3,6))
 a = [3,6]
 printSum(range(*a)) #range(3,6)と渡したのと同じ
 
+def mymap(ite, f):
+    list=[]
+    for x in ite:
+        list.append(f(x))
+    return list
+
+print(mymap(range(1,11), lambda x:x*2))
+fn = lambda x : x**2
+print(mymap(range(1,11), fn))
+
 #インスタンスごとに値を追加できたりする
 #1回しか使わない(クラス定義要らない)場合にはまあ使える
 i = EmptyClass()
