@@ -13,7 +13,7 @@ class Point:
     def length(self):
         return math.sqrt((self.x**2)+(self.y**2))
     
-    def add(self,x,y):
+    def add(self,x,y,/):
         self.x += x
         self.y += y
         
@@ -56,7 +56,7 @@ someP.where_is()
 someP2.where_is()
 
 someP.add(1,2)
-someP2.add(x=3,y=2) 
+#someP2.add(x=3,y=2) #エラー。位置指定の引数しか受け付けない
 
 print(someP.length())
 print(someP2.length())
