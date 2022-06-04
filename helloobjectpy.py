@@ -2,28 +2,28 @@ import math
 
 class Point:
     someValue = 10
-    def __init__(self, iniX, iniY):
-        self.x=iniX
-        self.y=iniY
+    def __init__(self, iniX:int, iniY:int):
+        self.x:int=iniX
+        self.y:int=iniY
         self.__xysum=self.__sumxy(self.x,self.y)
     
-    def __sumxy(self,x,y):
+    def __sumxy(self,x:int,y:int) -> int:
         return x+y
 
-    def length(self):
+    def length(self) -> int:
         return math.sqrt((self.x**2)+(self.y**2))
     
-    def add(self,x,y,/):
+    def add(self,x:int,y:int,/) -> None:
         self.x += x
         self.y += y
-    def addAndMul(self,x,y,*,multi=1):
+    def addAndMul(self,x:int,y:int,*,multi:float=1) -> None:
         self.add(x,y)
         if(multi != 0):
             self.x *= multi
             self.y *= multi
         
 
-    def where_is(self):
+    def where_is(self) -> None:
         match self:
             case Point(x=0, y=0):
                 print("Origin")
@@ -40,7 +40,7 @@ class Point:
 class EmptyClass:
     pass
 
-def argTest(arg1,arg2,/,*args1, **args2):
+def argTest(arg1:str,arg2:str,/,*args1, **args2) -> None:
     print("arg1 is "+arg1)
     print("arg2 is "+arg2)
     for a in args1:
@@ -58,7 +58,7 @@ argTest("hoge", "foo",
 argTest("how","bar",**{"user":"Tom","password":"qwertyu"})
 #user="Tom", password="qwertyu"と渡したのと同じ
 
-def variadicTest(*args,sep="/"):
+def variadicTest(*args:iter,sep="/") -> None:
     print(sep.join(args)) #直感的でないが・・・
 
 variadicTest("C:","Program Files", "Python", "bin")
@@ -70,7 +70,7 @@ variadicTest(*("C:","Program Files", "Python", "bin")) #アンパック　タプ
 for x in (1,2,3,4,5):
      print(x)
 
-def printSum(ite):
+def printSum(ite) -> None:
     res=0
     for x in ite:
         res += x
@@ -84,15 +84,15 @@ printSum(range(3,6))
 a = [3,6]
 printSum(range(*a)) #range(3,6)と渡したのと同じ
 
-def mymap(ite, f):
+def mymap(ite, f) -> list:
     """simple map function.
     
     ite : iterable, f : map function
     """
-    list=[]
+    res=[]
     for x in ite:
-        list.append(f(x))
-    return list
+        res.append(f(x))
+    return res
 
 print(mymap(range(1,11), lambda x:x*2))
 fn = lambda x : x**2
