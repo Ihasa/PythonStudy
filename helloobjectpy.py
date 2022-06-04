@@ -40,6 +40,25 @@ class Point:
 class EmptyClass:
     pass
 
+def argTest(arg1,arg2,*args1, **args2):
+    print("arg1 is "+arg1)
+    print("arg2 is "+arg2)
+    for a in args1:
+        print("args1...", a)
+    for a in args2:
+        print("args2["+a+"] is "+args2[a])
+
+argTest("hoge", "foo",
+ "how are you?", "this is a pen.", #*args1に入る。あふれた位置引数がここに入る。リストではなくタプルになる。(1,2,3,4,5)とか
+ color="blue", size="big", length="3.4" #**args2に入る。存在しないキーワード指定引数がここに入る
+ #,arg1="what" #エラー。同じ名前の引数は1回しか渡せない
+ #,"What's wrong?" #エラー。位置引数はキーワード引数の前だけ
+ )
+
+for x in (1,2,3,4,5):
+     print(x)
+
+
 #インスタンスごとに値を追加できたりする
 #1回しか使わない(クラス定義要らない)場合にはまあ使える
 i = EmptyClass()
