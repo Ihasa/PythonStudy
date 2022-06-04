@@ -85,6 +85,10 @@ a = [3,6]
 printSum(range(*a)) #range(3,6)と渡したのと同じ
 
 def mymap(ite, f):
+    """simple map function.
+    
+    ite : iterable, f : map function
+    """
     list=[]
     for x in ite:
         list.append(f(x))
