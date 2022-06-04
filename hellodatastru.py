@@ -96,3 +96,54 @@ a,b = 0,1
 print(len(range(0,10)))
 print(range(0,10)[9]) #エラーにならない。x[n]で値を参照するのは、iterableすべてに対してできる?
 print(range(10)) #これはそのままrange(0, 10)と表示される
+
+
+#Set(集合)を扱える
+basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
+print(basket) #重複なしになる
+print("orange" in basket)
+
+#{}で初期化するか、set(iterable)を使って作成
+l = [1,2,3,1,2,3,6,4,3,3,1,5]
+nums = set(l)
+print(nums)
+
+#内包も使える
+numsEven={x for x in l if x % 2 == 0}
+print(numsEven)
+
+
+#便利なdict(辞書)型
+#キーが不変型
+#タプルもキーにできるが、要素として可変なオブジェクトを持つタプルはダメ
+#集合のそれぞれの要素に対して何かしらの値を紐づけたものと考えるといい
+passlist={"tom":"qwerty", "jim":"19890123", "steve":"c1aF+Er20111118"}
+passlist["alex"] = "diamond4me"
+for x in passlist: #iteratorとしてはKeyのほうだけ取得する
+    print(x)
+for t in passlist.items(): #こうするとKeyValuePairとなるタプルとして取得するので、アンパックを使ったほうがいい
+    print(t)
+
+#その他
+#reversed(x)でシーケンスの順序逆転
+#enumerate(x)でリスト等に対してもインデックスと要素のタプルとして取得できる
+print(enumerate(reversed(range(1,11)))) #これはenumerateオブジェクト。また別モノ
+#APIリファレンスを見ても、いまいちどんな型との関連があるのかがわかりづらい
+#enumerateはiterableなので、以下はエラーにならない
+for t in enumerate(enumerate(reversed(range(1,11)))):
+    x,y = t
+    print(t)
+    print(x, y)
+
+e = enumerate(passlist)
+#print(e[0]) #これは不可 値の取得ができない
+
+for t in passlist.items(): #dictのiteratorはそのままではkeyしか返さない。
+    print(t)
+    x,y = t
+    print(x, y)
+
+#x.sortはlistのみ。他のiterableをsortしたかったら、sorted関数を使う
+#lambdaの引数でアンパックを使いたいのだが・・・
+print(sorted(passlist.items(),key=lambda x : len(x[1])))
+
