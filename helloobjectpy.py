@@ -1,3 +1,5 @@
+import math
+
 class Point:
     someValue = 10
     def __init__(self, iniX, iniY):
@@ -7,6 +9,9 @@ class Point:
     
     def __sumxy(self,x,y):
         return x+y
+
+    def length(self):
+        return math.sqrt((self.x**2)+(self.y**2))
         
 
     def where_is(self):
@@ -34,8 +39,8 @@ i.value=44
 print(i.name)
 
 
-someP=Point(0,45)
-someP2=Point(4,0)
+someP=Point(3,4)
+someP2=Point(4,4)
 someP2.y=40
 #print(someP.__xysum) エラー
 print(someP._Point__xysum) 
@@ -45,3 +50,6 @@ print(someP._Point__xysum)
 
 someP.where_is()
 someP2.where_is()
+
+print(someP.length())
+print(someP2.length())
