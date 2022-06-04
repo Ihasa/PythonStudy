@@ -55,15 +55,34 @@ argTest("hoge", "foo",
  #,"What's wrong?" #エラー。位置引数はキーワード引数の前だけ
  )
 
+argTest("how","bar",**{"user":"Tom","password":"qwertyu"})
+#user="Tom", password="qwertyu"と渡したのと同じ
+
 def variadicTest(*args,sep="/"):
     print(sep.join(args)) #直感的でないが・・・
 
 variadicTest("C:","Program Files", "Python", "bin")
 variadicTest("C:","Program Files(x86)", "Python", "bin", sep="\\")
+variadicTest(*["C:","Program Files", "Python", "bin"]) #アンパック　リスト
+variadicTest(*("C:","Program Files", "Python", "bin")) #アンパック　タプル
+#variadicTest(("C:","Program Files", "Python", "bin")) #これだと確かにタプル渡しになってしまう
 
 for x in (1,2,3,4,5):
      print(x)
 
+def printSum(ite):
+    res=0
+    for x in ite:
+        res += x
+    print("sum for ")
+    print(ite)
+    print("is ")
+    print(res)
+
+printSum((3,4,5))
+printSum(range(3,6))
+a = [3,6]
+printSum(range(*a)) #range(3,6)と渡したのと同じ
 
 #インスタンスごとに値を追加できたりする
 #1回しか使わない(クラス定義要らない)場合にはまあ使える
