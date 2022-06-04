@@ -41,6 +41,11 @@ class Point:
                 raise StopIteration
         self.idx += 1
         return res
+    
+    def generator(self):
+        ret = [self.x, self.y]
+        for v in ret:
+            yield v
 
 
 if __name__ == "__main__":
@@ -54,5 +59,5 @@ if __name__ == "__main__":
     print(p3.x, p3.y)
 
     print(p2.normal().length())
-    for v in p1:
+    for v in p1.generator():
         print("p1:",v)
