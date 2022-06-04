@@ -72,3 +72,27 @@ for x in zip(range(0,3), l):
 
 print(mat2)
 print(res2)
+
+#タプルとリストとrange
+#タプル:
+# 不変オブジェクト
+# 中身の型はバラバラである場合が多い
+# アンパックを使って、即席の構造体として使う
+tup = (12456, "qwerty", "Stevenson")
+id, password, name = tup
+print("ID-",id," is ",name,", pass=",password)
+
+#これは内部的にはタプルのパック・アンパックを行っているだけ
+a,b = 0,1
+
+#リスト:
+# おなじみのリスト。可変オブジェクト。省略
+
+#range:
+# 不変オブジェクト
+# range(0,4)とかかいていたが、これは関数じゃなくオブジェクトだった
+# iterableであるので、lenなどに渡せる
+
+print(len(range(0,10)))
+print(range(0,10)[9]) #エラーにならない。x[n]で値を参照するのは、iterableすべてに対してできる?
+print(range(10)) #これはそのままrange(0, 10)と表示される
